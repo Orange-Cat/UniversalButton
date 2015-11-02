@@ -1,0 +1,38 @@
+#######################################
+# Syntax Coloring Map for UniversalButton
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+UniversalButton	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+attachDigitalPin	KEYWORD2
+attachAnalogPin	KEYWORD2
+setClickCallback	KEYWORD2
+setDoubleClickCallback	KEYWORD2
+setMediumPressCallback	KEYWORD2
+setLongPressCallback	KEYWORD2
+update	KEYWORD2
+isPressed	KEYWORD2
+setClickTime	KEYWORD2
+setDoubleClickTime	KEYWORD2
+setMediumPressTime	KEYWORD2
+setLongPressTime	KEYWORD2
+setTriggerMode	KEYWORD2
+setMediumPressReleaseMode	KEYWORD2
+setReadPinTime	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+kDefaultClickTime	LITERAL1
+kDefaultDoubleClickTime	LITERAL1
+kDefaultMediumPressTime	LITERAL1
+kDefaultLongPressTime	LITERAL1
+kDefaultReadPinTime	LITERAL1
+
