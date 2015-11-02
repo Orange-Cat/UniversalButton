@@ -22,13 +22,13 @@ UniversalButton::UniversalButton()
   double_click_ms_(kDefaultDoubleClickTime),
   medium_press_ms_(kDefaultMediumPressTime),
   long_press_ms_(kDefaultLongPressTime),
+  read_pin_ms_(kDefaultReadPinTime),
   click_func_(NULL),
   double_click_func_(NULL),
   medium_press_func_(NULL),
   long_press_func_(NULL),
   state_(kStateIdle),
   last_check_time_(0),
-  read_pin_time_(kDefaultReadPinTime),
   start_time_(0),
   is_trigger_mode_(false),
   is_medium_press_release_mode_(false),
@@ -105,7 +105,7 @@ void UniversalButton::setMediumPressReleaseMode(bool turn_on)
 
 void UniversalButton::setReadPinTime(unsigned int ms)
 {
-  read_pin_time_ = ms;
+  read_pin_ms_ = ms;
 }
 
 void UniversalButton::setClickCallback(UniversalButtonCallback function)
@@ -137,7 +137,7 @@ void UniversalButton::update()
 {
   unsigned long now = millis();
 
-  if (now > last_check_time_ + read_pin_time_) {
+  if (now > last_check_time_ + read_pin_ms_) {
     last_check_time_ = now;
 
     uint16_t button_read;

@@ -144,6 +144,9 @@ class UniversalButton {
     unsigned int medium_press_ms_;
     unsigned int long_press_ms_;
 
+    // minimum milliseconds between reading digital/analog pins
+    unsigned int read_pin_ms_;
+
     // our callbacks
     UniversalButtonCallback click_func_;
     UniversalButtonCallback double_click_func_;
@@ -153,7 +156,6 @@ class UniversalButton {
     // current state info
     UniversalButtonState state_;
     unsigned long last_check_time_;
-    unsigned long read_pin_time_;
     unsigned long start_time_;
     bool is_trigger_mode_;
     bool is_medium_press_release_mode_;
