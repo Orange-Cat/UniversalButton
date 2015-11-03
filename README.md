@@ -1,4 +1,4 @@
-The Arduino UniversalButton Library is an Arduino library for interacting with any button or buttons.
+The Arduino Universal Button Library is an Arduino library for interacting with any button or buttons.
 The buttons may be attached to digital pins, analog pins (like proportional hall effect sensors), or
 multiple buttons attached to an analog pin (using different resistors to VCC), or even buttons
 attached to I2C or SPI or other buses.
