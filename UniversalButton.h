@@ -1,8 +1,8 @@
 //
 // Title: Arduino UniversalButton Library
 // Author: Orange Cat
-// Version: 1.0
-// Date: 3-11-2015
+// Version: 1.0.1
+// Date: 2015-11-05
 //
 // Description:
 //   This is an Arduino library for interacting with any button or buttons. The buttons may be
@@ -37,6 +37,10 @@
 //   Long presses are detected as soon as the longPressTime is reached (default 6 seconds).
 //
 //   There are various methods to support altering the timing of button clicks and presses.
+//
+// Change Log:
+//   1.0: Initial release
+//   1.0.1: improve response time for click when we don't have a registered double-click callback
 //
 // License:
 //   This firmware is released under the Creative Commons Attribution-ShareAlike 4.0

@@ -217,10 +217,12 @@ void UniversalButton::update(bool button_pressed)
       break;
 
     case kStateClickRelease:
-      // button was pressed and then released, we are now waiting for button being pressed the
-      // second time or timeout to report single click (when not in trigger mode)
-      if (now > start_time_ + double_click_ms_) {
-        // timeout waiting for double click -- was only a single click
+      // button was pressed and now released, if we have a double click callback we wait for button to be
+      // pressed a second time or to timeout to report single click (when not in trigger mode). If we do not
+      // have a double click callback registered, then we are done as we can count this as a single click
+      // immediately.
+      if ((double_click_func_ == NULL) || (now > start_time_ + double_click_ms_)) {
+        // no need to wait for double-click or we timed-out waiting for double click -- was a single click
         if (click_func_ != NULL && !is_trigger_mode_) {
           click_func_();
         }
@@ -229,9 +231,7 @@ void UniversalButton::update(bool button_pressed)
       else if (button_pressed) {
         // this is a double click -- it's safe to report now before released
         is_pressed_ = true;
-        if (double_click_func_ != NULL) {
-          double_click_func_();
-        }
+        double_click_func_();
         state_ = kStateReleaseFinal;
       }
       else {

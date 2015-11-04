@@ -54,10 +54,12 @@ void setup()
 
   left.attachAnalogPin(buttonPin, kLeft - kTolerance, kLeft + kTolerance);
   left.setClickCallback(leftClick);
+  // we also detect a double-click on the left button
+  left.setDoubleClickCallback(leftDoubleClick);
 
-  // we also detect a long press on the select button
   select.attachAnalogPin(buttonPin, kSelect - kTolerance, kSelect + kTolerance);
   select.setClickCallback(selectClick);
+  // we also detect a long press on the select button
   select.setLongPressCallback(selectLongPress);
 }
 
@@ -90,6 +92,11 @@ void downClick()
 void leftClick()
 {
   Serial.println("left click");
+}
+
+void leftDoubleClick()
+{
+  Serial.println("left double-click");
 }
 
 void selectClick()
