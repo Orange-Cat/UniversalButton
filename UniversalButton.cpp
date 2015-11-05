@@ -42,7 +42,7 @@ void UniversalButton::attachDigitalPin(int digital_pin)
   attachDigitalPin(digital_pin, true);
 }
 
-void UniversalButton::attachDigitalPin(int digital_pin, boolean active_low)
+void UniversalButton::attachDigitalPin(int digital_pin, bool active_low)
 {
   pin_ = digital_pin;
   pin_type_ = kPinDigital;
