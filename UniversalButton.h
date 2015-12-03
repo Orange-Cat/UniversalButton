@@ -72,6 +72,10 @@ class UniversalButton {
     void setMediumPressCallback(UniversalButtonCallback function);
     void setLongPressCallback(UniversalButtonCallback function);
 
+    // the callback function will be called at the start of a short/medium, or long button press
+    // after the button is held for the click time and before it is released:
+    void setStartPressCallback(UniversalButtonCallback function);
+
     // Call update() every time through loop for buttons on analog and
     // digital pins
     void update();
@@ -156,7 +160,8 @@ class UniversalButton {
     UniversalButtonCallback double_click_func_;
     UniversalButtonCallback medium_press_func_;
     UniversalButtonCallback long_press_func_;
-
+    UniversalButtonCallback start_press_func_;
+    
     // current state info
     UniversalButtonState state_;
     unsigned long last_check_time_;

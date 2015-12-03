@@ -27,6 +27,7 @@ UniversalButton::UniversalButton()
   double_click_func_(NULL),
   medium_press_func_(NULL),
   long_press_func_(NULL),
+  start_press_func_(NULL),
   state_(kStateIdle),
   last_check_time_(0),
   start_time_(0),
@@ -128,6 +129,11 @@ void UniversalButton::setLongPressCallback(UniversalButtonCallback function)
   long_press_func_ = function;
 }
 
+void UniversalButton::setStartPressCallback(UniversalButtonCallback function)
+{
+  start_press_func_ = function;
+}
+
 bool UniversalButton::isPressed()
 {
   return is_pressed_;
@@ -204,8 +210,11 @@ void UniversalButton::update(bool button_pressed)
           state_ = kStateReachedMedium;
         }
         else if (now > start_time_ + click_ms_) {
+          if (!is_pressed_ && start_press_func_ != NULL) {
+            start_press_func_();
+          }
           if (!button_pressed && click_func_ != NULL && is_trigger_mode_) {
-            // first time we are here and it's tigger mode so invoke callback now
+            // first time we are here and it's trigger mode so invoke callback now
             click_func_();
           }
           is_pressed_ = true;
