@@ -17,6 +17,7 @@ setClickCallback	KEYWORD2
 setDoubleClickCallback	KEYWORD2
 setMediumPressCallback	KEYWORD2
 setLongPressCallback	KEYWORD2
+setStartPressCallback	KEYWORD2
 update	KEYWORD2
 isPressed	KEYWORD2
 setClickTime	KEYWORD2

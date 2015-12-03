@@ -1,8 +1,8 @@
 //
 // Title: Arduino UniversalButton Library
 // Author: Orange Cat
-// Version: 1.0.1
-// Date: 2015-11-05
+// Version: 1.0.2
+// Date: 2015-12-03
 //
 // Description:
 //   This is an Arduino library for interacting with any button or buttons. The buttons may be
