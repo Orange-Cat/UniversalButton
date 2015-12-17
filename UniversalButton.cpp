@@ -1,7 +1,7 @@
 //
 // Title: Arduino UniversalButton Library
 // Author: Orange Cat
-// Date: 3-11-2015
+// Date: 18-12-2015
 //
 // Description:
 //   See UniversalButton.h for a complete description.
@@ -143,7 +143,7 @@ void UniversalButton::update()
 {
   unsigned long now = millis();
 
-  if (now > last_check_time_ + read_pin_ms_) {
+  if (now >= last_check_time_ + read_pin_ms_) {
     last_check_time_ = now;
 
     uint16_t button_read;
@@ -202,14 +202,14 @@ void UniversalButton::update(bool button_pressed)
       }
       else {
         // button is pressed
-        if (now > start_time_ + medium_press_ms_) {
+        if (now >= start_time_ + medium_press_ms_) {
           // medium press function is called as soon as time is reached
           if (medium_press_func_ != NULL && !is_medium_press_release_mode_) {
             medium_press_func_();
           }
           state_ = kStateReachedMedium;
         }
-        else if (now > start_time_ + click_ms_) {
+        else if (now >= start_time_ + click_ms_) {
           if (!is_pressed_ && start_press_func_ != NULL) {
             start_press_func_();
           }
@@ -230,7 +230,7 @@ void UniversalButton::update(bool button_pressed)
       // pressed a second time or to timeout to report single click (when not in trigger mode). If we do not
       // have a double click callback registered, then we are done as we can count this as a single click
       // immediately.
-      if ((double_click_func_ == NULL) || (now > start_time_ + double_click_ms_)) {
+      if ((double_click_func_ == NULL) || (now >= start_time_ + double_click_ms_)) {
         // no need to wait for double-click or we timed-out waiting for double click -- was a single click
         if (click_func_ != NULL && !is_trigger_mode_) {
           click_func_();
@@ -257,7 +257,7 @@ void UniversalButton::update(bool button_pressed)
         is_pressed_ = false;
         state_ = kStateIdle;
       }
-      else if (now > start_time_ + long_press_ms_) {
+      else if (now >= start_time_ + long_press_ms_) {
         if (long_press_func_ != NULL) {
           long_press_func_();
         }
